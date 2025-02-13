@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} */
+
+body {
+  background-color: #E0F4FF;
+}
+
+.alertSensor {
+  background-color: white;
+  animation: colorChange 1s infinite alternate;
+}
+
+@keyframes colorChange {
+  0% {
+      background-color: white;
+  }
+  50% {
+      background-color: red;
+  }
+  100% {
+      background-color: white; 
+  }
+}
+
+@layer utilities {
+  .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply w-full leading-[1.15] py-[15px] uppercase inline-block border border-main rounded-lg text-main bg-second tracking-[0.25px] transition-all text-center hover:text-second hover:bg-main;
+  }
+
+  .nav-link.active {
+    @apply text-second bg-main;
+  }
+
+  .temp-1 {
+    background-image: linear-gradient(45deg, #Fff1da, #Fdbc4f);
+  }
+  
+  .temp-2 {
+    background-image: linear-gradient(45deg, #Fdbc4f, #Ff7d00);
+  }
+  
+  .temp-3 {
+    background-image: linear-gradient(45deg, #Ff7d00, #ff0000);
+  }
+
+  .humi-1 {
+    background-image: linear-gradient(45deg, #e0e0f7, #8c9eff);
+  }
+  
+  .humi-2 {
+    background-image: linear-gradient(45deg, #8c9eff, #87c4ff);
+  }
+  
+  .humi-3 {
+    background-image: linear-gradient(45deg, #87c4ff, #39a7ff);
+  }
+
+  .light-1 {
+    background-image: linear-gradient(45deg, #f0f0f0, #ffd54f);
+  }
+  
+  .light-2 {
+    background-image: linear-gradient(45deg, #ffd54f, #ffb300);
+  }
+  
+  .light-3 {
+    background-image: linear-gradient(45deg, #ffb300, #ffff00);
+  }
+  
+  .sensor-1 {
+    background-image: linear-gradient(45deg, #f0f0f0, #98b2bb);
+  }
+  
+  .sensor-2 {
+    background-image: linear-gradient(45deg, #98b2bb, #039316);
+  }
+  
+  .sensor-3 {
+    background-image: linear-gradient(45deg, #039316, #08e226);
+  }
+
+  .bg-temp {
+    background-image: linear-gradient(45deg, #ffa500, #ff0000);
+  }
+
+  .bg-humi {
+    background-image: linear-gradient(45deg, #87c4ff, #39a7ff);
+  }
+
+  .bg-light {
+    background-image: linear-gradient(45deg, #ffca03, #ffff00);
+  }
+
+  .bg-sensor {
+    background-image: linear-gradient(45deg, #039316, #08e226);
+  }
+
+  .card {
+    @apply flex items-center bg-white rounded-lg overflow-hidden shadow-two w-[28%];
+  }
+
+  .card-v1 {
+    @apply flex items-center bg-white rounded-lg overflow-hidden shadow-two w-[20%];
+  }
+
+  .card-icon {
+    @apply h-full text-white text-[36px] px-[20px] inline-flex justify-center items-center;
+  }
+
+  .card-title {
+    @apply mb-[15px] leading-[1.2] font-bold tracking-[0.25px] text-[20px] text-center;
+  }
+
+  .btn-change {
+    @apply block px-[20px] py-[10px] mt-[10px] mx-auto border-none rounded-[4px] text-white cursor-pointer font-poppin leading-[1] transition-all
+  }
+
+  .sensor-table th, .sensor-table td {
+    @apply w-[20%] border border-third p-[10px] text-center font-poppin leading-[1]
+  }
+
+  .sensor-table-v1 th, .sensor-table-v1 td {
+    @apply border border-third p-[10px] text-center font-poppin leading-[1]
+  }
+
+  .pagination-table ul.ant-pagination {
+    .ant-pagination-prev .ant-pagination-item-link {
+      @apply text-main text-[14px]
+    }
+
+    .ant-pagination-prev .ant-pagination-item-link:disabled {
+      color: #00000040;
+      @apply bg-transparent;
+    }
+    
+    .ant-pagination-next .ant-pagination-item-link {
+      @apply text-main text-[14px]
+    }
+
+    .ant-pagination-next .ant-pagination-item-link:disabled {
+      color: #00000040;
+      @apply bg-transparent;
+    }
+
+    .ant-pagination-prev:hover .ant-pagination-item-link:disabled {
+      @apply bg-transparent;
+    }
+
+    .ant-pagination-prev:hover .ant-pagination-item-link {
+      @apply bg-white;
+    }
+
+    .ant-pagination-next:hover .ant-pagination-item-link:disabled {
+      @apply bg-transparent;
+    }
+
+    .ant-pagination-next:hover .ant-pagination-item-link {
+      @apply bg-white;
+    }
+
+    .ant-pagination-item:hover {
+      @apply bg-white;
+    }
+
+    .ant-pagination-item-active {
+      @apply border-main
+    }
+
+    .ant-pagination-item a, .ant-pagination-item-active a {
+      @apply text-main font-poppin font-[500] text-[16px]
+    }
+
+    .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+      @apply text-main text-[14px]
+    }
+    
+    .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon {
+      @apply text-main text-[14px]
+    }
+  }
+}
